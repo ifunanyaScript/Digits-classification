@@ -28,10 +28,10 @@ examples = iter(train_loader)
 samples, labels = examples.next()
 # print(samples.shape, labels.shape)
 
-'''for i in range(6):
+for i in range(6):
     plt.subplot(2, 3, i+1)
     plt.imshow(samples[i][0], cmap='gray')
-plt.show()'''
+plt.show()
 
 
 class NeuralNetwork(nn.Module):
