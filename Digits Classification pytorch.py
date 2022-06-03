@@ -11,9 +11,9 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 input_size = 784 # 28*28, image size
 hidden_size = 100
 num_classes = 10
-epochs = 20
+epochs = 50
 batch_size = 100
-learning_rate = 0.001
+learning_rate = 0.002999
 
 # MNIST
 train_data = torchvision.datasets.MNIST(root='.\data', train=True, 
@@ -23,15 +23,15 @@ test_data = torchvision.datasets.MNIST(root='.\data', train=False,
 train_loader = torch.utils.data.DataLoader(dataset=train_data, batch_size=batch_size, shuffle=True)
 test_loader = torch.utils.data.DataLoader(dataset=test_data, batch_size=batch_size, shuffle=False)
 
-
-examples = iter(train_loader)
+# Unqoute the below snippet to view a few of the digits samples
+'''examples = iter(train_loader)
 samples, labels = examples.next()
 # print(samples.shape, labels.shape)
 
 for i in range(6):
     plt.subplot(2, 3, i+1)
     plt.imshow(samples[i][0], cmap='gray')
-plt.show()
+plt.show()'''
 
 
 class NeuralNetwork(nn.Module):
@@ -90,5 +90,6 @@ with torch.no_grad():
         
     acc = 100.00 * (n_correct/n_samples)
     
-print(f'Accuracy: {acc:.2f}%')    
-    
+print(f'Accuracy: {round(acc)}%')    
+
+# ifunanyaScript
